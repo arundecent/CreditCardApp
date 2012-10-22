@@ -1,0 +1,33 @@
+
+import org.groovy.creditcard.Customer;
+
+
+rule "SSN Validity"
+
+when
+  Customer(ssn == null )
+then
+  System.out.println("Social Security Number cannot be null");
+end
+
+rule "State ID"
+
+when 
+	$cust : Customer( state == 'az' )
+then
+			$cust.setComments("Persons from az state cannot apply");
+             System.out.println("Persons from az state cannot apply");   
+
+end
+
+rule "State ID Negate"
+
+when 
+	$cust : Customer( state != 'az' )
+then
+			$cust.setComments("Approved");
+             System.out.println("Approved");   
+
+end
+
+
