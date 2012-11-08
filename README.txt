@@ -4,7 +4,7 @@ However it should not be very different from Unix/Mac deployment.
 Download tomcat 7
 1. Download tomcat from this location
 http://tomcat.apache.org/download-70.cgi
-2. Extract the tomcat application to a directory of your choice.
+2. Extract the tomcat application to a dir of your choice.
   eg. C:\tomcat7
 
 Copying the project war file to tomcat webapps folder
