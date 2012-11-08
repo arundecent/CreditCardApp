@@ -1,5 +1,7 @@
 All instructions are written with a windows environment on mind.
+
 However it will not be very different from Unix/Mac deployment.
+
 
 Download tomcat 7
 1. Download tomcat from this location
