@@ -113,4 +113,82 @@ class CustomerController {
 		
 		redirect(uri:'/customer/show/'+appID)
 	}
+	
+	def customerhome = {
+		if(session.usertype == 'banker')
+		{
+			//def cb = Results.countByCardTypeID()
+			def criteria = Results.createCriteria()
+			def criteria1 = Results.createCriteria()
+			def criteria2 = Results.createCriteria()
+			def criteria3 = Results.createCriteria()
+			
+			def distinctCardType = criteria.list {
+				projections {
+					distinct 'cardTypeID'
+					cache(true)
+				}
+			}
+			
+			
+     		def distinctCardAcceptance = criteria1.list{
+				projections {
+						distinct 'isAccept'
+						cache(true)
+					}
+			}
+			
+			def distinctApprover = criteria2.list{
+				projections {
+						distinct 'approverID'
+						cache(true)
+					}
+			}
+			
+			def distinctOverrider = criteria3.list{
+				projections {
+						distinct 'manualOverRide'
+						cache(true)
+					}
+			}
+			//System.out.println("countByOverrider : "+countByCardType)
+			def countByCardType = [:]
+			//def countByCardType = []
+			for(def item in distinctCardType)
+			{
+				def cb = Results.countByCardTypeID(item,[cache: true])
+				countByCardType.put(item,cb)
+			}
+			
+			def countCardAcceptance = [:]
+			for(def item in distinctCardAcceptance)
+			{
+				def cb = Results.countByIsAccept(item,[cache: true])
+				countCardAcceptance.put(item,cb)
+			}
+			
+			def countByApproverID = [:]
+			for(def item in distinctApprover)
+			{
+				def cb = Results.countByApproverID(item,[cache: true])
+				countByApproverID.put(item,cb)
+			}
+			
+			def countByOverride = [:]
+			for(def item in distinctOverrider)
+			{
+				def cb = Results.countByManualOverRide(item,[cache: true])
+				countByOverride.put(item,cb)
+			}
+			
+			System.out.println("countByApproverID:"+countByApproverID);
+			System.out.println("countByCardType:"+countByCardType);
+			System.out.println("countByOverride:"+countByOverride);
+			System.out.println("countCardAcceptance:"+countCardAcceptance);
+			
+			["countByApproverID":countByApproverID,"countByCardType":countByCardType,"countByOverride":countByOverride,"countCardAcceptance":countCardAcceptance] 
+			
+		}
+		
+	}
 }

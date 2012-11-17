@@ -13,19 +13,19 @@ class LoginController {
 	 redirect(uri:"/login.gsp")
 	}
 	else {
-	System.out.println(params['username']);
-	System.out.println(params['password']);
 	boolean isValid = Login.findWhere(username: params['username'], password: params['password'])
-//  session.user = user
 		if (isValid){
 			def userRecord = Login.findByUsername(params['username']);
 			session.usertype = userRecord.usertype;
 			session.username = params['username'];
-			redirect(action:"create", controller:"customer")
+			redirect(action:"customerhome")
+			//redirect(action:"create", controller:"customer")
 		}
 		else{
 		System.out.println("Invalid");
-		redirect(uri:"/login.gsp")
+		flash.message = "message.invalid.login"
+		flash.default = "Invalid login"
+		redirect(uri:"/")
 		}
 	}
 	
@@ -38,6 +38,21 @@ class LoginController {
 			redirect(uri:"/login.gsp")
 			}
 		}
+	
+	def customerhome = {
+		System.out.println("Customer home");
+		if(session.username)
+		{
+			System.out.println("Redirecting to customer home...");
+			System.out.println("usertype-"+session.usertype);
+			redirect(action:"customerhome",controller:"customer")
+		}
+		else
+		{
+			redirect(action:"logout")
+		}
+	}
+	
 	/*def login = {
 		if(params.userName=="admin" && params.password=="Password"){
 			flash.message =  "Login Succeded"

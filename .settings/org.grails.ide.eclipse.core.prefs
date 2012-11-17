@@ -32,4 +32,4 @@ org.grails.ide.eclipse.core.source.attachment-grails-spring-2.1.1.jar=E\:/SOFTWA
 org.grails.ide.eclipse.core.source.attachment-grails-test-2.1.1.jar=E\:/SOFTWARES/springsource/grails-2.1.1/src/grails-test-2.1.1-sources.jar
 org.grails.ide.eclipse.core.source.attachment-grails-web-2.1.1.jar=E\:/SOFTWARES/springsource/grails-2.1.1/src/grails-web-2.1.1-sources.jar
 org.grails.ide.eclipse.core.source.attachment-plugin-classes=/CreditCardApp/lib/droolsjbpm-tools-distribution-5.4.0.Final.zip
-org.grails.ide.eclipse.core.use.default.install=false
+org.grails.ide.eclipse.core.use.default.install=true
