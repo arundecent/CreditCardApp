@@ -106,3 +106,5 @@
 	<g:datePicker name="applicationDate" precision="day"  value="${customerInstance?.applicationDate}"  />
 </div>
 
+<%@ page import="org.groovy.creditcard.CustomerBank" %>
+

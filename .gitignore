@@ -13,8 +13,12 @@ tmp/
 *~.nib
 local.properties
 .classpath
-#.settings/
+*.classpath
+.settings/
 .loadpath
+target/
+target-eclipse/
+.class
 
 # External tool builders
 .externalToolBuilders/

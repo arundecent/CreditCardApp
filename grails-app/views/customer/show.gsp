@@ -157,6 +157,15 @@
 					
 				</li>
 				</g:if>
+				
+				<g:if test="${customerInstance?.customerbank}">
+				<li class="fieldcontain">
+					<span id="customerbank-label" class="property-label"><g:message code="customer.customerbank.label" default="Customerbank" /></span>
+					
+						<span class="property-value" aria-labelledby="customerbank-label"><g:link controller="customerBank" action="show" id="${customerInstance?.customerbank?.id}">${customerInstance?.customerbank?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
 			
 			
 			</ol>

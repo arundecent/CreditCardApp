@@ -17,7 +17,9 @@ class Customer {
 	Date applicationDate
 	String isVerified
 	String comments
-	//CustomerBank customerbank
+	String maritalStatus
+//	CustomerBank customerbank
+//	static hasOne = [customerbank: CustomerBank]
 	
 	void setComments(String comments){
 		this.comments = comments;
@@ -42,6 +44,7 @@ class Customer {
 		applicationDate column: 'applicationDate'
 		isVerified column: 'isVerified'
 		comments column: 'comments'
+		maritalStatus column: 'maritalStatus'
 		
 	}
     static constraints = {
@@ -61,6 +64,7 @@ class Customer {
 		applicationDate blank:false
 		isVerified nullable:true
 		comments nullable:true
-		//customerbank unique: true
+		maritalStatus nullable:true,inList:['Single','Married','Widowed']
+		//customerbank nullable: true
     }
 }
